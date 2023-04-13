@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	<Dialog title="Filter Dialog" id="dialog" contentWidth="300px">
+		<content>
+			<l:Grid defaultSpan="L12 M12 S12" class="sapUiSmallMargin">
+				<Label text="Request Type"/>
+				<ComboBox id="reqTypeSelectFilter" required="true" width="100%" showSecondaryValues="false" placeholder="Select Request Type"
+					change="onReqTypeChange">
+					<items>
+						<core:ListItem key="N" text="New Request" additionalText="N"/>
+						<core:ListItem key="M" text="Change/Minor Change" additionalText="M"/>
+						<core:ListItem key="E" text="Extend" additionalText="E"/>
+					</items>
+				</ComboBox>
+				<Label text="Status"/>
+				<ComboBox id="statusSelectFilter" required="true" width="100%" items="{path: '/StatusSet'}" showSecondaryValues="true"
+					placeholder="Select Request Status" selectedKey="O" change="onStatusChange" enabled="true">
+					<items>
+						<core:ListItem key="{StatusID}" text="{StatusDesc}" additionalText="{StatusID}"/>
+					</items>
+				</ComboBox>
+				<Label text="Object Type"/>
+				<ComboBox id="objTypeSelectFilter" required="true" width="100%" items="{path: '/ObjecttypeSet'}" showSecondaryValues="true"
+					placeholder="Select Object Type" change="onObjTypeChange" enabled="true">
+					<items>
+						<core:ListItem key="{Objectype}" text="{Description}" additionalText="{Objectype}"/>
+					</items>
+				</ComboBox>
+				<Label text="Template"/>
+				<ComboBox id="templateSelectFilter" width="100%" showSecondaryValues="true" placeholder="Select Template" change="onTemplateChange"/>
+				<Label text="Request Created By"/>
+				<Input id="createdByFilter" valueLiveUpdate="true" liveChange="handleLiveChange" required="true" width="100%"
+					placeholder="Enter username of the user" maxLength="50" enabled="{viewModel>/UIEnabled}"/>
+				<!--</l:Grid>-->
+			</l:Grid>
+		</content>
+		<buttons>
+			<Button text="Confirm" press="onFilterConfirm" type="Emphasized" tooltip="Confirm"/>
+			<Button text="Close" press="onFilterClose" tooltip="Close"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

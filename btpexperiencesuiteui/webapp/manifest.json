@@ -1,0 +1,281 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "bsx.btpexperiencesuiteui",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.9.1",
+            "toolsId": "cce4a26b-e414-4a4f-97e2-c0fcac96b86b"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "bsx-btpexperiencesuiteui-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "btpexperiencesuite",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.111.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "bsx.btpexperiencesuiteui.i18n.i18n"
+                }
+            },
+            "userModel": {
+              "type": "sap.ui.model.json.JSONModel"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "bsx.btpexperiencesuiteui.view",
+                "controlAggregation": "pages",
+                "controlId": "mainContents",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                  "name": "Home",
+                  "pattern": "Dashboard",
+                  "target": [
+                    "TargetDashboard"
+                  ]
+                },
+                {
+                  "name": "Track",
+                  "pattern": "TrackReq",
+                  "target": [
+                    "TargetTrackReq"
+                  ]
+                },
+                {
+                  "name": "CPEA",
+                  "pattern": "CPEA",
+                  "target": [
+                    "CPEA"
+                  ]
+                },
+                {
+                  "name": "CPEACUST",
+                  "pattern": "CPEACUST",
+                  "target": [
+                    "CPEACUST"
+                  ]
+                },
+                {
+                  "name": "CPEACUSTDETAIL",
+                  "pattern": "CPEACUSTDETAIL",
+                  "target": [
+                    "CPEACUSTDETAIL"
+                  ]
+                },
+                {
+                  "name": "USAGE",
+                  "pattern": "USAGE",
+                  "target": [
+                    "USAGE"
+                  ]
+                },
+                {
+                  "name": "MANAGE",
+                  "pattern": "MANAGE",
+                  "target": [
+                    "MANAGE"
+                  ]
+                },
+                {
+                  "name": "BRAKESCREATE",
+                  "pattern": "BRAKESCREATE",
+                  "target": [
+                    "BRAKESCREATE"
+                  ]
+                },
+                {
+                  "name": "MANAGECREATE",
+                  "pattern": "MANAGECREATE",
+                  "target": [
+                    "MANAGECREATE"
+                  ]
+                },
+                {
+                  "name": "MANAGEEDIT",
+                  "pattern": "MANAGEEDIT",
+                  "target": [
+                    "MANAGEEDIT"
+                  ]
+                },
+                {
+                  "name": "CONFIG",
+                  "pattern": "CONFIG",
+                  "target": [
+                    "CONFIG"
+                  ]
+                },
+                {
+                  "name": "NOTSUBSCRIBED",
+                  "pattern": "NOTSUBSCRIBED",
+                  "target": [
+                    "NOTSUBSCRIBED"
+                  ]
+                }
+              ],
+              "targets": {
+                "TargetDashboard": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "Dashboard",
+                  "viewName": "Home.Dashboard"
+                },
+                "TargetTrackReq": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "Requests",
+                  "viewName": "TrackReq.Requests"
+                },
+                "CPEA": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "cpeaLandingPage",
+                  "viewName": "CPEA.landingPage"
+                },
+                "CPEACUST": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "cpeaCustomerOverview",
+                  "viewName": "CPEA.customerOverview"
+                },
+                "CPEACUSTDETAIL": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "cpeaCustomerDetail",
+                  "viewName": "CPEA.customerDetail"
+                },
+                "USAGE": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "usageOverview",
+                  "viewName": "USAGE.usageOverview"
+                },
+                "MANAGE": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "manageOverview",
+                  "viewName": "MANAGE.manageUsers"
+                },
+                "BRAKESCREATE": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "brakesCreate",
+                  "viewName": "MANAGE.createBrakesUser"
+                },
+                "MANAGECREATE": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "manageCreate",
+                  "viewName": "MANAGE.createUser"
+                },
+                "MANAGEEDIT": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "manageEdit",
+                  "viewName": "MANAGE.editUsersRoles"
+                },
+                "CONFIG": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "configOverview",
+                  "viewName": "CONFIG.configTree"
+                },
+                "NOTSUBSCRIBED": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "clearControlAggregation": false,
+                  "viewId": "notSubscribed",
+                  "viewName": "NotSubscribed"
+                }
+              }
+        },
+        "rootView": {
+            "viewName": "bsx.btpexperiencesuiteui.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "btpexperiencesuite"
+    }
+}

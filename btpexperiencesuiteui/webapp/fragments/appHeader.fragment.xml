@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+    <VBox class="sapUiContentPadding">
+       <!--App Name-->
+       <!--Avatar-->
+       <!--Notifications-->
+    
+    <items>
+    
+        <Toolbar width="100%" id="toolbar1" design="Transparent" style="Clear">
+    
+            <content>
+    
+                <Label id="appHeader" xmlns="sap.m" text="Dashboard" class="appTitle"/>
+    
+            </content>
+    
+        </Toolbar>
+    
+    </items>
+    
+    </VBox>
+</core:FragmentDefinition>

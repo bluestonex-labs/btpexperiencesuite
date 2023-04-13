@@ -1,0 +1,7 @@
+<mvc:View controllerName="bsx.btpexperiencesuiteui.controller.NotSubscribed"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Not Subscribed" backgroundDesign="Solid" class="whitePage">
+        <content />
+    </Page>
+</mvc:View>

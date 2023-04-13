@@ -1,0 +1,238 @@
+<mvc:View xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:main="sap.ui.webc.main"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:core="sap.ui.core"
+    xmlns:viz.data="sap.viz.ui5.data" controllerName="bsx.btpexperiencesuiteui.controller.CPEA.landingPage">
+    <Page showHeader="false">
+        <OverflowToolbar class="transparentToolbar">
+            <Button icon="sap-icon://nav-back" press="navBack" type="Transparent" style="sapUiLargeMarginEnd"/>
+            <Breadcrumbs currentLocationText="Overview" separatorStyle="{/selected}">
+
+
+            </Breadcrumbs>
+        </OverflowToolbar>
+        <l:VerticalLayout id="containerLayout" width="100%">
+            <l:BlockLayout id="BlockLayout" background="Dashboard">
+                <l:BlockLayoutRow accentCells="Accent1">
+                    <l:BlockLayoutCell width="3" title="Consumption by Customer">
+                        <DateRangeSelection id="consumptionDate" placeholder="Select Date Range" change="onConsumptionDateChange" value= "{ 'type': 'sap.ui.model.type.DateInterval',
+				            'formatOptions': { 'pattern': 'MM/yyyy' }, 'parts': [
+                                {
+                                    'type': 'sap.ui.model.type.Date',
+                                    'path': '/oDRS4Start'
+                                },
+                                {
+                                    'type': 'sap.ui.model.type.Date',
+                                    'path': '/oDRS4End'
+                                }
+                            ] }"/>
+                        <HBox height="300px" width="90%" items="{path: 'oConsumptionChartModel>/'}">
+                            <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar1Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="{oConsumptionChartModel>cost}" class="consumptionChartFont boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar1" height="{oConsumptionChartModel>height}%" width="100%"/>
+                                <Label text="{oConsumptionChartModel>customerName}" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>
+
+                            <!-- <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar2Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="80" class="boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar2" height="80%" width="100%"/>
+                                <Label text="CUST 2" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>
+
+                            <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar3Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="85" class="boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar3" height="85%" width="100%"/>
+                                <Label text="CUST 3" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>
+
+                            <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar4Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="50" class="boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar4" height="50%" width="100%"/>
+                                <Label text="CUST 4" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>
+
+                            <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar5Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="60" class="boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar5" height="60%" width="100%"/>
+                                <Label text="CUST 5" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>
+                            <VBox height="100%" width="15%" justifyContent="End" alignItems="Center" class="chartPadding">
+                                <VBox class="chartBar6Circle" alignItems="Center" justifyContent="Center">
+                                    <Label text="90" class="boldFont"/>
+                                </VBox>
+                                <VBox class="chartBar6" height="90%" width="100%"/>
+                                <Label text="CUST 6" class="sapUiTinyMargin" wrapping="true" textAlign="Center"/>
+                            </VBox>-->
+
+                        </HBox>
+
+                        <!-- <viz:VizFrame id="consumptionChart" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='column'>
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset data="{oCpeaModel>/content}">
+                                    <viz.data:dimensions>
+                                        <viz.data:DimensionDefinition name="Customer" value="{oCpeaModel>/content}" />
+                                    </viz.data:dimensions>
+                                    <viz.data:measures>
+                                        <viz.data:MeasureDefinition name="Cost" value="{oCpeaModel>/content}" />
+                                    </viz.data:measures>
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+
+                            <viz:feeds>
+                                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Revenue" />
+                                <viz.feeds:FeedItem uid="timeAxis" type="Dimension" values="Date" />
+                            </viz:feeds>
+                        </viz:VizFrame> -->
+                        <!-- <DatePicker id="consumptionDate" class="sapUiSmallMarginBegin" displayFormat="long" change="onConsumptionDateChange" placeholder="Enter Date"/> -->
+
+                        <!-- <viz:VizFrame legendVisible="true" id="consumptionChart" width="100%" uiConfig="{applicationSet:'fiori'}" height="380px" vizType="column" class="vizBg"/> -->
+
+                    </l:BlockLayoutCell>
+                    <l:BlockLayoutCell width="2" title="">
+
+                        <l:titleLink>
+                            <Link text="License Count" press="navToCustomers"/>
+                        </l:titleLink>
+
+                        <VBox items="{path: 'oCustomerModel>/'}">
+
+                            <HBox width="100%" alignItems="Center" renderType="Bare">
+                                <Label text="{oCustomerModel>customerName}:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator width="70%" state="Error" percentValue="90" displayValue="90" showValue="true"/>
+                            </HBox>
+
+
+                            <!--    <HBox width="100%" alignItems="Center" renderType="Bare" class="sapUiSmallMarginBottom">
+                                <Label text="Eurocell:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator class="sapUiTinyMarginBottom" state="Error" percentValue="90" displayValue="90" showValue="true"/>
+                            </HBox>
+
+                            <HBox width="100%" alignItems="Center" renderType="Bare" class="sapUiSmallMarginBottom">
+                                <Label text="McBride:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator class="sapUiTinyMarginBottom" percentValue="85" state="Warning" displayValue="85" showValue="true"/>
+                            </HBox>
+
+                            <HBox width="100%" alignItems="Center" renderType="Bare" class="sapUiSmallMarginBottom">
+                                <Label text="Princes:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator class="sapUiTinyMarginBottom" percentValue="80" state="Warning" displayValue="80" showValue="true"/>
+                            </HBox>
+
+                            <HBox width="100%" alignItems="Center" renderType="Bare" class="sapUiSmallMarginBottom">
+                                <Label text="Scapa:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator class="sapUiTinyMarginBottom" percentValue="60" state="Success" displayValue="60" showValue="true"/>
+                            </HBox>
+
+                            <HBox width="100%" alignItems="Center" renderType="Bare" class="sapUiSmallMarginBottom">
+                                <Label text="SHS:" width="7rem" wrapping="true" class="sapUiSmallMarginEnd"/>
+                                <ProgressIndicator class="sapUiTinyMarginBottom" percentValue="50" state="Success" displayValue="50" showValue="true"/>
+                            </HBox> -->
+
+                        </VBox>
+
+                    </l:BlockLayoutCell>
+                    <l:BlockLayoutCell width="2" title="Manage Customers">
+                        <List noDataText="Drop list items here" id="customerList" class="customerList" items="{path: 'oCustomerModel>/'}">
+                            <items>
+                                <StandardListItem type="Navigation" title="{oCustomerModel>customerName}" icon="sap-icon://picture" press="manageCustomer">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent2"/>
+                                    </avatar>
+                                </StandardListItem>
+                                <!-- <StandardListItem type="Navigation" title="Eurocell" icon="sap-icon://picture">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent3"/>
+                                    </avatar>
+                                </StandardListItem>
+                                <StandardListItem type="Navigation" title="McBride" icon="sap-icon://picture">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent4"/>
+                                    </avatar>
+                                </StandardListItem>
+
+                                <StandardListItem type="Navigation" title="Princes" icon="sap-icon://picture">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent5"/>
+                                    </avatar>
+                                </StandardListItem>
+
+                                <StandardListItem type="Navigation" title="Scapa" icon="sap-icon://picture">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent6"/>
+                                    </avatar>
+                                </StandardListItem>
+
+                                <StandardListItem type="Navigation" title="SHS" icon="sap-icon://picture">
+                                    <avatar>
+                                        <Avatar displaySize="M" backgroundColor="Accent7"/>
+                                    </avatar>
+                                </StandardListItem> -->
+
+                            </items>
+                        </List>
+                    </l:BlockLayoutCell>
+
+                </l:BlockLayoutRow>
+                <l:BlockLayoutRow >
+                    <l:BlockLayoutCell>
+                        <HBox>
+                            <Select id="srvSelect" class="sapUiTinyMargin" selectedKey="scp-launchpad" change="onSelectSrv">
+                                <core:Item key="scp-launchpad" text="Launchpad Service" />
+                                <core:Item key="identityauthentication" text="Identity and Authentication Service" />
+                            </Select>
+                            <DateRangeSelection class="sapUiTinyMargin" id="srvOvwDate" placeholder="Select Date Range" change="onSrvDateChange" value= "{ 'type': 'sap.ui.model.type.DateInterval',
+				            'formatOptions': { 'pattern': 'MM/yyyy' }, 'parts': [
+                                {
+                                    'type': 'sap.ui.model.type.Date',
+                                    'path': '/oDRS4Start'
+                                },
+                                {
+                                    'type': 'sap.ui.model.type.Date',
+                                    'path': '/oDRS4End'
+                                }
+                            ] }"/>
+                        </HBox>
+
+                        <viz:VizFrame legendVisible="true" id="overviewChart" width="100%" uiConfig="{applicationSet:'fiori'}" height="280px" vizType="line" class="vizBg"/>
+                        <!-- <viz:VizFrame legendVisible="true" id="srvOvwChart" width="100%" uiConfig="{applicationSet:'fiori'}" height="380px" vizType="line" class="vizBg"/> -->
+                        <!-- <viz:VizFrame id="custConsumeChart" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='line' class="vizBg" vizProperties="{ plotArea:{ dataLabel:{visible: true} } }">
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset data="{oCpeaModel>/content}">
+                                    <viz.data:dimensions>
+                                        <viz.data:DimensionDefinition name="Report" value="{oCpeaModel>reportYearMonth}" />
+                                    </viz.data:dimensions>
+                                    <viz.data:measures>
+                                        <viz.data:MeasureDefinition name="Cost" value="{oCpeaModel>cost}" />
+                                    </viz.data:measures>
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+
+                            <viz:feeds>
+                                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Cost" />
+                                <viz.feeds:FeedItem uid="timeAxis" type="Dimension" values="Report" />
+                            </viz:feeds>
+                        </viz:VizFrame> -->
+                    </l:BlockLayoutCell>
+                </l:BlockLayoutRow>
+
+            </l:BlockLayout>
+            <l:content>
+
+            </l:content>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

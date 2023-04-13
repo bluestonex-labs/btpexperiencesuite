@@ -1,0 +1,92 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:micro="sap.suite.ui.microchart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:main="sap.ui.webc.main"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="createNewUser" class="sapUiPopupWithPadding">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Title text="New User Information"/>
+                </contentMiddle>
+            </Bar>
+
+        </customHeader>
+        <l:VerticalLayout id="containerLayout" width="100%">
+            <l:BlockLayout id="BlockLayout">
+                <l:BlockLayoutRow accentCells="Accent1">
+                    <l:BlockLayoutCell width="2">
+                        <VBox width="100%" alignItems="Center">
+                            <!--<Avatar displaySize="XL" class="sapUiMediumMarginBottom"/>-->
+                            <HBox width="100%">
+                                <VBox width="40%" class="sapUiTinyMarginEnd">
+                                    <Label text="Name" required="true"/>
+                                    <Input id="sFirstName" placeholder="Enter first name"/>
+                                </VBox>
+                                <VBox width="60%">
+                                    <Label/>
+                                    <Input id="sLastName" placeholder="Enter last name"/>
+                                </VBox>
+                            </HBox>
+
+                            <VBox width="100%" class="sapUiSmallMarginTop">
+                                <Label text="User Type" required="true"/>
+                                <SegmentedButton selectedKey="blank" width="100%" selectionChange="onSelectUserType">
+                                    <items>
+                                        <SegmentedButtonItem text="Permanent" key="Permanent" />
+                                        <SegmentedButtonItem text="Temporary" key="Temporary"/>
+                                        <SegmentedButtonItem key="blank" visible="false"/>
+                                    </items>
+                                </SegmentedButton>
+                            </VBox>
+
+                            <VBox width="100%" class="sapUiSmallMarginTop">
+                                <Label text="Email" required="true"/>
+                                <Input id="sEmail" placeholder="Enter email address"/>
+                            </VBox>
+
+                            <VBox width="100%" class="sapUiSmallMarginTop">
+                                <!--<Label text="Location"/>-->
+                                <!-- <Input placeholder="Enter Location"/> -->
+                                <Label text="User name" required="true"/>
+                                <Input id="sUserName" placeholder="Enter user name"/>
+                            </VBox>
+
+                            <VBox width="100%" class="sapUiSmallMarginTop">
+                                <Label text="User valid for"/>
+                                <Input id="sValidDays" placeholder="Enter number of days" change="onChangeValidDays"/>
+                            </VBox>
+
+                            <VBox width="100%" class="sapUiSmallMarginTop">
+                                <Input id="sValidTo" editable="false" placeholder="User valid until"/>
+                            </VBox>
+
+                            <!--<VBox width="100%" class="sapUiSmallMarginTop" visible="false" id="employeeBox">
+                                <Label text="Employee Number"/>
+                                <Input placeholder="Enter Employee number"/>
+                            </VBox> -->
+                        </VBox>
+
+
+                    </l:BlockLayoutCell>
+
+                </l:BlockLayoutRow>
+            </l:BlockLayout>
+            <l:content>
+
+            </l:content>
+        </l:VerticalLayout>
+        <beginButton>
+            <Button type="Emphasized" text="Save" press="onCreateUser" class="createButton"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCancelCreateUser"/>
+        </endButton>
+    </Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,143 @@
+<mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout"  xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"  xmlns:viz.data="sap.viz.ui5.data" xmlns:micro="sap.suite.ui.microchart"  xmlns:mvc="sap.ui.core.mvc" xmlns:main="sap.ui.webc.main" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"  controllerName="bsx.btpexperiencesuiteui.controller.CPEA.customerDetail">
+<Page showHeader="false">
+
+<OverflowToolbar class="transparentToolbar">
+<Button icon="sap-icon://nav-back" press="navBack" type="Transparent" style="sapUiLargeMarginEnd"/>
+	<Breadcrumbs currentLocationText="Customer Detail" separatorStyle="{/selected}">
+				<Link  text="Overview" press="navHome"/>
+                <Link text="Customer Overview" press="navBack"/>
+
+			</Breadcrumbs>
+            </OverflowToolbar>
+	<l:VerticalLayout id="containerLayout" width="100%">
+        <HBox width="100%" justifyContent="Center">
+        <VBox width="100%" alignItems="Center">
+            <Avatar displaySize="XL" backgroundColor="Accent3" class="sapUiMediumMarginTop"/>
+            <Label text="CUSTOMER 1" class="sapUiSmallMarginTop sapUiMediumMarginBottom"/>
+            </VBox>
+        </HBox>
+		<l:BlockLayout id="BlockLayout" background="Dashboard">
+			<l:BlockLayoutRow accentCells="Accent1">
+				<l:BlockLayoutCell title="Alerts">
+                    <VBox>
+                        <HBox alignItems="Center">
+                            <Switch type="AcceptReject" state="true"/>
+                            <Label text="Consumption Alerts" class="sapUiSmallMarginBegin"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                             <Switch type="AcceptReject" state="true"/>
+                            <Label text="License Count Alerts" class="sapUiSmallMarginBegin"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                             <Switch type="AcceptReject" state="false"/>
+                            <Label text="Contract Alerts" class="sapUiSmallMarginBegin"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                            <Switch type="AcceptReject" state="false"/>
+                            <Label text="Upgrade Alerts" class="sapUiSmallMarginBegin"/>
+                        </HBox>
+                        <HBox alignItems="Center">
+                             <Switch type="AcceptReject" state="true"/>
+                            <Label text="Upcoming Outages" class="sapUiSmallMarginBegin"/>
+                        </HBox>
+                    </VBox>
+                 
+				</l:BlockLayoutCell >
+
+<l:BlockLayoutCell title="Contact Information">
+        <VBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Main Contact:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="John Doe" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Phone:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="+44 (0) 1691 880 223" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Email:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="John.Doe@email.com" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="LinkedIn:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="John Doe, UX Analyst" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Website:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="https://bluestonex.com" class="blackText"/>
+            </HBox>
+        </VBox>
+               
+				</l:BlockLayoutCell>
+
+<l:BlockLayoutCell title="Latest Updates">
+    <VBox   class="sapUiSmallMarginTop">
+        <Label text="Go-live update 21st December 2022" class="sapUiTinyMarginBottom font"/>
+        <Label text="Weekly project catchup meetings 9am BST every thursday" class="sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+    </VBox>
+               
+				</l:BlockLayoutCell>
+
+                	
+                
+                	    
+                       
+	
+			</l:BlockLayoutRow>
+
+            			<l:BlockLayoutRow accentCells="Accent1">
+                        <l:BlockLayoutCell title="Consumption" class="fontTest">
+
+
+    <viz:VizFrame legendVisible="true" id="appChart" width="100%" uiConfig="{applicationSet:'fiori'}" height="280px" vizType="line" class="vizBg"/>
+
+				</l:BlockLayoutCell>
+                            
+                        </l:BlockLayoutRow>
+                        <l:BlockLayoutRow >
+                            <l:BlockLayoutCell title="License Information">
+                                  <VBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="User Licenses:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="1000" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Active Users:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="902" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Inactive Users:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="98" class="blackText"/>
+            </HBox>
+            
+        </VBox>
+                            </l:BlockLayoutCell>    
+
+                             <l:BlockLayoutCell title="Contract Information">
+
+                                           <VBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Contract Type:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="XYZ" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Contract Length:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="3 years" class="blackText"/>
+            </HBox>
+            <HBox alignItems="Center" class="sapUiTinyMarginTop sapUiSmallMarginBottom">
+            <Label text="Renewal Date:" class="sapUiSmallMarginEnd boldText"/>
+            <Label text="11th February 2024" class="blackText"/>
+            </HBox>
+            
+        </VBox>
+                            </l:BlockLayoutCell>                        
+                        
+                        </l:BlockLayoutRow>
+			
+		</l:BlockLayout>
+	<l:content>
+	   
+	</l:content>
+	</l:VerticalLayout>
+</Page>
+</mvc:View>

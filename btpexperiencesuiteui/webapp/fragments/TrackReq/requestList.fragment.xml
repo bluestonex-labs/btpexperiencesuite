@@ -1,0 +1,79 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.f">
+<VBox>
+    <f:IllustratedMessage title="No requests to track!" description="Check the filters and try again." illustrationSize="Scene" illustrationType="sapIllus-BeforeSearch">
+		<f:additionalContent>
+			<Button text="Filters" press="onFilterPress"/>
+		</f:additionalContent>
+	</f:IllustratedMessage>
+	<Table id="tblReqList" inset="false" items="{path:'/'}" sticky="HeaderToolbar,ColumnHeaders" growing="true" growingThreshold="10" growingScrollToLoad="true">
+		<columns>
+			<Column width="20%">
+				<Title text="Request"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Title text="Task"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true">
+				<Title text="Owner Group"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true">
+				<Title text="Target Date"/>
+			</Column>
+			<Column>
+				<Title text="Priority"/>
+			</Column>
+			<Column>
+				<Title text="Status"/>
+			</Column>
+		</columns>
+		<infoToolbar id="itFilter" enabled="false" visible="true">
+			<OverflowToolbar
+				active="false"
+				press="handleInfobarPress" >
+				<Label id="infoLabel" text="" />
+			</OverflowToolbar>
+		</infoToolbar>
+		<items>
+			<ColumnListItem id="tblTaskListTemp" type="Navigation" press="showDetail" >
+				<cells>
+					<ObjectIdentifier title="{ path: 'CrNo', formatter: '.formatter.removeLeadingZeroes' }" text="{CrDesc}"/>
+					<ObjectIdentifier title="Step no - {StepNo}" text="{TaskAction}"/>
+					<Text text="{OwnerGrpDesc}"/>
+					<ObjectNumber number="{ path: 'TargetDate', formatter: '.formatter.MasterDateReverse' }" unit="" state="None"/>
+					<!--ObjectStatus text="{ path: 'Priority', formatter: '.formatter.fullPriority' }" state="{ path: 'Priority', formatter: '.formatter.priorityColors' }"/-->
+					<ObjectStatus text="{ path: 'Status', formatter: '.formatter.fullStatus' }" state="None"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+
+    <List id="tblReqList1" width="auto" class="sapFDynamicPageAlignContent"
+				items="{path:'/Get_request_lstSet',sorter:[{path:'CrDesc',descending:false}]}" busyIndicatorDelay="{masterView>/delay}"
+				noDataText="{masterView>/noDataText}" mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true"
+				growingScrollToLoad="true" updateFinished=".onUpdateFinished" selectionChange=".onSelectionChange" growingThreshold="30">
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField id="searchField" showRefreshButton="true" tooltip="{i18n>masterSearchTooltip}" liveChange="onFilterSearch" width="100%">
+							<layoutData>
+								<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+							</layoutData>
+						</SearchField>
+						<ToolbarSpacer/>
+						<Button id="btnFilter" press="onPressButtonFilter" icon="sap-icon://filter" type="Transparent"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{CrDesc}"
+						number="{ path: 'CrNo', formatter: '.formatter.removeLeadingZeroes' }" numberState="Success">
+						<attributes>
+							<ObjectAttribute text="{parts: [{path: 'ObjectDesc'}], formatter: '.formatter.getDescriptionOrCode'}"/>
+						</attributes>
+						<firstStatus>
+							<ObjectStatus text="{ path: 'CrStatus', formatter: '.formatter.fullStatus'}"
+								state="None"/>
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+			</List>
+    </VBox>
+</core:FragmentDefinition>

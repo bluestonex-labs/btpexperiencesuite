@@ -1,0 +1,94 @@
+<mvc:View xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:micro="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:main="sap.ui.webc.main"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:f="sap.f"
+	xmlns:cards="sap.f.cards" controllerName="bsx.btpexperiencesuiteui.controller.CPEA.customerOverview">
+
+	<OverflowToolbar class="transparentToolbar">
+		<Button icon="sap-icon://nav-back" press="navBack" type="Transparent" style="sapUiLargeMarginEnd"/>
+		<Breadcrumbs currentLocationText="Customer Overview" separatorStyle="{/selected}">
+			<Link text="Overview" press="navBack"/>
+
+		</Breadcrumbs>
+	</OverflowToolbar>
+
+	<!-- <l:HorizontalLayout id="containerLayout" items="{path: 'oCustomerModel>/'}"> -->
+
+	<!-- <items> -->
+	<Carousel pages="{path: 'oCustomerModel>/'}">
+
+			<customLayout>
+				<CarouselLayout visiblePagesCount="4" />
+			</customLayout>
+		<ScrollContainer class="sapUiLargeMarginTop sapUiContentPadding">
+			<f:Card>
+				<!-- <f:content>
+					<l:VerticalLayout id="containerLayout">
+						<l:BlockLayout id="BlockLayout" background="Dashboard">
+
+							<l:BlockLayoutRow accentCells="Accent1">
+								<l:BlockLayoutCell >
+									<VBox alignItems="Center">
+										<Avatar displaySize="L" class="sapUiMediumMarginBottom" press="onCustomerPress" backgroundColor="Accent1"/>
+										<Label text="{oCustomerModel>customerName}"/>
+
+										<micro:RadialMicroChart size="L" alignContent="Center" percentage="90" valueColor="Error" class="chartPadding sapUiSmallMarginTop"/>
+										<List noDataText="Drop list items here" class="customerList">
+											<items>
+												<StandardListItem title="Licence Count" info="903">
+												</StandardListItem>
+												<StandardListItem title="Active Users" info="855">
+												</StandardListItem>
+												<StandardListItem title="Inactive Users" info="48">
+												</StandardListItem>
+
+
+											</items>
+										</List>
+									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+
+						</l:BlockLayout>
+					</l:VerticalLayout>
+				</f:content> -->
+
+				<f:content>
+					<l:VerticalLayout id="containerLayout" class="sapUiContentPadding" width="100%">
+						<l:BlockLayout id="BlockLayout">
+							<l:BlockLayoutRow accentCells="Accent1">
+								<l:BlockLayoutCell>
+
+									<VBox alignItems="Center">
+										<Avatar displaySize="L" class="sapUiMediumMarginBottom" press="onCustomerPress" backgroundColor="Accent1"/>
+										<Label text="{oCustomerModel>customerName}"/>
+
+										<micro:RadialMicroChart size="L" alignContent="Center" percentage="90" valueColor="Error" class="chartPadding sapUiSmallMarginTop"/>
+										<List noDataText="Drop list items here" class="customerList">
+											<items>
+												<StandardListItem title="Licence Count" info="903">
+												</StandardListItem>
+												<StandardListItem title="Active Users" info="855">
+												</StandardListItem>
+												<StandardListItem title="Inactive Users" info="48">
+												</StandardListItem>
+
+
+											</items>
+										</List>
+									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+						</l:BlockLayout>
+					</l:VerticalLayout>
+				</f:content>
+			</f:Card>
+		</ScrollContainer>
+	</Carousel>
+	<!-- </items> -->
+	<!-- </l:HorizontalLayout>  -->
+
+</mvc:View>

@@ -1,0 +1,84 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/bpmworkflowruntime/(.*)$",
+      "target": "$1",
+      "service": "com.sap.bpm.workflow",
+      "endpoint": "workflow_rest_url",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/sap_process_automation_api/(.*)$",
+      "target": "$1",
+      "destination": "sap_process_automation_api",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/cis_bsxtdd/(.*)$",
+      "target": "$1",
+      "destination": "cloud_identity_service",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/cis_brakesdev/(.*)$",
+      "target": "$1",
+      "destination": "scim",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/reporting/(.*)$",
+      "target": "$1",
+      "destination": "usageapi_test",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/btp_cockpit/(.*)$",
+      "target": "$1",
+      "destination": "bsx_btp_cockpit",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/scim_shadow_users/(.*)$",
+      "target": "$1",
+      "destination": "scim_shadow_users",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/user-api(.*)",
+      "target": "$1",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "^/bsxorgappsservices/(.*)$",
+      "target": "$1",
+      "destination": "bsxorgappsservices",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/bsxcpeaexperience/(.*)$",
+      "target": "$1",
+      "destination": "bsxcpeaexperience",
+      "csrfProtection": false
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

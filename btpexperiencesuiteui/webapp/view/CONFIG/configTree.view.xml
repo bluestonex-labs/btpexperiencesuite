@@ -1,0 +1,439 @@
+<mvc:View xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:micro="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:main="sap.ui.webc.main" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="bsx.btpexperiencesuiteui.controller.CONFIG.configTree">
+<Page showHeader="false" backgroundDesign="Solid" class="whitePage">
+<OverflowToolbar class="transparentToolbar noLineToolbar configToolbar">
+    <Avatar />
+    <Text text="Good morning Dan" class="boldText blackText configTitleText sapUiMediumMarginBegin"/>
+</OverflowToolbar>
+
+            <HBox>
+                <HBox class=" sapUiMediumMarginTop sapUiMediumMarginBegin"> 
+                    		<Avatar
+							src="sap-icon://picture"
+							displaySize="XL"
+							displayShape="Square" class="logoAvatar"
+                            backgroundColor="Accent5" >
+						
+					</Avatar>
+                    <VBox class="sapUiMediumMarginBegin">
+                   
+                        <Input class="configBlack" value="Customer Name"  />
+                        <HBox alignItems="Center" class="sapUiSmallMarginTop sapUiTinyMarginBegin">
+                            <Label text="Primary Color" class="blackText sapUiSmallMarginEnd"/>
+                            <core:Icon src="sap-icon://color-fill" color="#8f2dbb"/>
+                            <core:Icon src="sap-icon://edit" class="sapUiSmallMarginBegin"/>
+                            
+                         </HBox>
+                      <HBox alignItems="Center" class="sapUiTinyMarginBegin">
+                            <Label text="Secondary Color" class="blackText sapUiSmallMarginEnd"/>
+                            <core:Icon src="sap-icon://color-fill" color="#2eb0d3"/>
+                            <core:Icon src="sap-icon://edit" class="sapUiSmallMarginBegin"/>
+                            
+                         </HBox>
+                    </VBox>
+
+                    
+                </HBox>
+               <HBox class=" boxSeperatorNoMargin sapUiLargeMarginBegin"> 
+                    	<micro:RadialMicroChart size="L" valueColor="Critical" width="100px" percentage="75" class="sapUiSmallMargin"/>
+                        <Label width="150px" text="BTP User Licenses Consumed" wrapping="true" class="sapUiMediumMarginTop blackText"/>
+                </HBox>
+
+                 <HBox class="boxSeperatorNoMargin sapUiMediumMarginBegin" > 
+                    	<Label text="250" class="neutralStatusText2 sapUiSmallMarginTop"/>
+                        <VBox height="100%" class="sapUiSmallMarginBegin">
+                        <Label width="150px" text="BTP User Licenses remaining" wrapping="true" class="sapUiMediumMarginTop blackText"/>
+                        </VBox>
+                </HBox>
+
+                 
+            
+            
+            </HBox>
+
+            <l:VerticalLayout width="100%" class="sapUiSmallMarginTop">
+		<l:BlockLayout background="Dashboard">
+			<l:BlockLayoutRow accentCells="Accent1">
+
+
+    <!-- USERS -->           
+				<l:BlockLayoutCell width="2" title="User Properties" class="configBlockTitles">
+                    <VBox>
+                        <VBox class="sapUiSmallMarginTop">
+                            <Label text="Naming Convention" class="blackText sapUiTinyMarginBottom"/>
+                            <Input value="SiteId + UserType + Initials" showValueHelp="true"/>
+                        </VBox>
+                        <VBox class="sapUiSmallMarginTop">
+                            <Label text="Password Policy" class="blackText sapUiTinyMarginBottom"/>
+                            <Input value="UpperCase + LowerCase + symbol" showValueHelp="true"/>
+                        </VBox>
+
+                        <VBox class="sapUiSmallMarginTop">
+                            <Label text="Default password expiry" class="blackText sapUiTinyMarginBottom"/>
+                            <Input value="6 months" showValueHelp="true"/>
+                        </VBox>
+
+                        <VBox class="sapUiMediumMarginTop">
+                            <Label text="Approval required for creation?" class="blackText"/>
+                            <Switch state="true" customTextOn="Yes" customTextOff="No"/>
+                        </VBox>
+                    <VBox class="sapUiLargeMarginTop">
+                         <Button text="Configure mandatory fields" width="100%" class="configureButtons"/>
+                         <Button text="Configure Workflow assignment" width="100%" class="configureButtons"/>
+                        </VBox>
+                    
+                    
+                    </VBox>			
+				</l:BlockLayoutCell>
+
+
+    <!-- ALLOCATION -->
+                <l:BlockLayoutCell width="2" title="User Allocation" class="configBlockTitles">
+                 <VBox>
+                        <VBox class="sapUiSmallMarginTop">
+                            <Label text="Remaining User License Allocation:" class="blackText sapUiTinyMarginBottom"/>
+                            <HBox alignItems="Center"> 
+                                <Label id="licenseCount" text="250" class="remainingNumber sapUiTinyMarginEnd"/>
+                                <Label text=" / 1000" class="totalNumber sapUiMediumMarginEnd"/>
+                                <Button icon="sap-icon://add" />
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="sapUiMediumMarginTop">
+                            <Label text="Site 01" class="blackText"/>
+                            <HBox alignItems="Center" width="100%">
+                            <Slider value="35" width="100%" class="sapUiSmallMarginEnd">
+                                <layoutData>
+                                    <FlexItemData growFactor="1"></FlexItemData>
+                                </layoutData>
+                            </Slider>
+                            <Label text="300" />
+                            
+                            </HBox>
+                        </VBox>
+                         <VBox class="">
+                            <Label text="Site 02" class="blackText"/>
+                            <HBox alignItems="Center" width="100%">
+                            <Slider value="25" width="100%" class="sapUiSmallMarginEnd">
+                                <layoutData>
+                                    <FlexItemData growFactor="1"></FlexItemData>
+                                </layoutData>
+                            </Slider>
+                            <Label text="140" />
+                            
+                            </HBox>
+                        </VBox>
+                         <VBox class="">
+                            <Label text="Site 03" class="blackText"/>
+                            <HBox alignItems="Center" width="100%">
+                            <Slider value="35" width="100%" class="sapUiSmallMarginEnd">
+                                <layoutData>
+                                    <FlexItemData growFactor="1"></FlexItemData>
+                                </layoutData>
+                            </Slider>
+                            <Label text="300" />
+                            
+                            </HBox>
+                        </VBox>
+                        <VBox class="">
+                            <Label text="Site 04" class="blackText"/>
+                            <HBox alignItems="Center" width="100%">
+                            <Slider value="15" width="100%" class="sapUiSmallMarginEnd">
+                                <layoutData>
+                                    <FlexItemData growFactor="1"></FlexItemData>
+                                </layoutData>
+                            </Slider>
+                            <Label text="70" />
+                            
+                            </HBox>
+                        </VBox>
+
+                        <Link
+				text="View more..." class="sapUiSmallMarginTop"
+				/>
+                   <VBox class="sapUiSmallMarginTop">
+                         <Button text="Configure allocation groups" width="100%" class="configureButtons"/>
+                        
+                        </VBox>
+                    
+                    
+                    </VBox>
+                 
+			
+				</l:BlockLayoutCell>
+    <!-- LANDSCAPE -->            
+                <l:BlockLayoutCell width="4"  class="configBlockTitles">
+                <HBox width="100%">
+                <Link text="Landscape Configuration" class="bigBoldText  sapUiLargeMarginEnd"/>
+                <HBox justifyContent="End" width="100%">
+                	<SegmentedButton selectedKey="BTP" selectionChange="onSegPress" >
+					<items>
+						<SegmentedButtonItem text="BTP systems" class="segButton" width="10rem" key="BTP" />
+						<SegmentedButtonItem text="Other systems" class="segButton" width="10rem" key="OTHER"/>
+						
+					</items>
+				</SegmentedButton>
+                </HBox>
+                </HBox>
+                <HBox width="100%" class="sapUiLargeMarginTop" alignItems="Center" id="btpSetup">
+                    <VBox class="landscapeBoxes" alignItems="Center" height="100%" width="30%">
+                    <Avatar src="sap-icon://cloud" displaySize="L" displayShape="Square"/>
+                        <Label text="Development" class="blackText boldText sapUiSmallMarginTop"/>
+
+                        <Label text="Subaccount ID:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="eg5-wdd98u2-edfs"/>
+
+                        <Label text="Region:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="EU10 - Frankfurt"/>
+
+                         <Label text="Applications:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="98"/>
+
+                         <Label text="Service Plans:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="65"/>
+                    
+                    	<Button text="Linked systems" width="100%" class="configureButtons sapUiMediumMarginTop"/>
+                    </VBox>   
+                <Button icon="sap-icon://arrow-right" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                    
+                        <VBox class="landscapeBoxes" alignItems="Center" height="100%" width="30%">
+                    <Avatar src="sap-icon://cloud" backgroundColor="Accent4" displaySize="L" displayShape="Square"/>
+                        <Label text="Quality" class="blackText boldText sapUiSmallMarginTop"/>
+
+                        <Label text="Subaccount ID:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="es3-dvslkmji-efes"/>
+
+                        <Label text="Region:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="EU10 - Frankfurt"/>
+
+                          <Label text="Applications:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="64"/>
+
+                         <Label text="Service Plans:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="23"/>
+                    
+                    	<Button text="Linked systems" width="100%" class="configureButtons sapUiMediumMarginTop"/>
+                    </VBox>   
+                       <Button icon="sap-icon://arrow-right" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+                             <VBox class="landscapeBoxes" alignItems="Center" height="100%" width="30%">
+                    <Avatar src="sap-icon://cloud" backgroundColor="Accent5" displaySize="L" displayShape="Square"/>
+                        <Label text="Production" class="blackText boldText sapUiSmallMarginTop"/>
+
+                        <Label text="Subaccount ID:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="pf3-iojfif7-bgfb"/>
+
+                        <Label text="Region:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="EU10 - Frankfurt"/>
+
+                          <Label text="Applications:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="40"/>
+
+                         <Label text="Service Plans:" class="blackText sapUiSmallMarginTop" />
+                        <Label text="23"/>
+                    
+                    	<Button text="Linked systems" width="100%" class="configureButtons sapUiMediumMarginTop"/>
+                    </VBox>   
+                    
+                   
+                </HBox>
+                <VBox id="systemSetup" visible="false">
+                     <Table  class="transparentTableHeader">	<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Systems Defined" />
+				<ToolbarSpacer/>
+				<Button
+					icon="sap-icon://add"/>
+				<Button
+					icon="sap-icon://less"
+					/>
+			</OverflowToolbar>
+		</headerToolbar>
+        <items>
+    
+
+             <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <ObjectIdentifier text="Development" title="Client 100" class="tableText"/>
+                    <Button text="ERP" class="purpleText"/>
+                    <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                 <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                    </cells>
+            </ColumnListItem>
+
+            <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <ObjectIdentifier text="Development" title="Client 800" class="tableText"/>
+                    <Button text="ERP" class="purpleText"/>
+                    <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                 <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                    </cells>
+            </ColumnListItem>
+
+            <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <ObjectIdentifier text="Development" title="Client 050" class="tableText"/>
+                    <Button text="Gateway" class="purpleText"/>
+                    <core:Icon src="sap-icon://sys-cancel" class="purpleText"/>
+                 <core:Icon src="sap-icon://sys-cancel" class="purpleText"/>
+                    </cells>
+            </ColumnListItem>
+
+         <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <ObjectIdentifier text="Quality" title="Client 800" class="tableText"/>
+                    <Button text="ERP" class="purpleText"/>
+                    <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                 <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                    </cells>
+            </ColumnListItem>
+
+             <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <ObjectIdentifier text="Production" title="Client 100" class="tableText"/>
+                    <Button text="ERP" class="purpleText"/>
+                    <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                 <core:Icon src="sap-icon://sys-enter-2" class="purpleText"/>
+                    </cells>
+            </ColumnListItem>
+        </items>
+        <columns >
+          
+            <Column width="7rem">
+                <header>
+                    <Label text="System" />
+                </header>
+            </Column>
+            <Column width="7rem">
+                <header>
+                    <Label text="System Type" />
+                </header>
+            </Column>
+            <Column width="8rem">
+                <header>
+                    <Label text="Destinations Exist" />
+                </header>
+            </Column>
+            <Column width="7rem">
+                <header>
+                    <Label text="Linked to BTP"/>
+                </header>
+            </Column>
+            
+            
+            
+            
+            </columns></Table>
+                </VBox>
+                 
+			
+				</l:BlockLayoutCell>
+                
+			</l:BlockLayoutRow>
+
+            <l:BlockLayoutRow >
+            
+                <l:BlockLayoutCell title="Service Subscriptions" class="configBlockTitles">
+                 <Table  class="transparentTableHeader"><headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<SearchField search="onSearch" width="17.5rem"/>
+					</OverflowToolbar>
+				</headerToolbar>
+        <items>
+            <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <Text text="Launchpad Service" class="tableText"/>
+                    <core:Icon src="sap-icon://switch-views" class="purpleText"/>
+                    <Text text="Standard" class="purpleText"/>
+                <Text text="Unlimited" class="purpleText"/>  
+                    </cells>
+            </ColumnListItem>
+
+                 <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <Text text="Business Application Studio" class="tableText"/>
+                    <Button text="Development" class="purpleText"/>
+                    <Text text="Standard" class="purpleText"/>
+                <Text text="2 of 8" class="purpleText"/>  
+                    </cells>
+            </ColumnListItem>
+
+              <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <Text text="Continuous Integration and Delivery" class="tableText"/>
+                    <Button text="Development" class="purpleText"/>
+                    <Text text="Free" class="purpleText"/>
+                <Text text="1 of 8" class="purpleText"/>  
+                    </cells>
+            </ColumnListItem>
+      <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <Text text="Workflow Service" class="tableText"/>
+                    <core:Icon src="sap-icon://switch-views" class="purpleText"/>
+                    <Text text="Standard" class="purpleText"/>
+                <Text text="Unlimited" class="purpleText"/>  
+                    </cells>
+            </ColumnListItem>
+
+             <ColumnListItem  type="Navigation">
+                <cells>
+            
+                    <Text text="SAP Workzone Service" class="tableText"/>
+                    <Button text="Development" class="purpleText"/>
+                    <Text text="Standard" class="purpleText"/>
+                <Text text="Unlimited" class="purpleText"/>  
+                    </cells>
+            </ColumnListItem>
+
+            
+        </items>
+        <columns >
+          
+            <Column width="15rem">
+                <header>
+                    <Label text="Service" />
+                </header>
+            </Column>
+            <Column width="7rem">
+                <header>
+                    <Label text="Subaccount Active" id="label57"/>
+                </header>
+            </Column>
+            <Column width="12rem">
+                <header>
+                    <Label text="Plan" />
+                </header>
+            </Column>
+            <Column width="5rem">
+                <header>
+                    <Label text="Quota"/>
+                </header>
+            </Column>
+            
+            
+            
+            
+            </columns></Table>
+                
+                </l:BlockLayoutCell>
+            
+            
+            </l:BlockLayoutRow>
+           
+			
+		</l:BlockLayout>
+	<l:content>
+	   
+	</l:content>
+	</l:VerticalLayout>
+
+</Page>
+</mvc:View>

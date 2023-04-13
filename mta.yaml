@@ -1,0 +1,92 @@
+_schema-version: "3.2"
+ID: btpexperiencesuite
+version: 0.0.1
+modules:
+- name: btpexperiencesuite-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: btpexperiencesuite-destination-service
+    parameters:
+      content-target: true
+  - name: btpexperiencesuite_html_repo_host
+    parameters:
+      service-key:
+        name: btpexperiencesuite_html_repo_host-key
+  - name: uaa_btpexperiencesuite
+    parameters:
+      service-key:
+        name: uaa_btpexperiencesuite-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: btpexperiencesuite_btpexperiencesuite_html_repo_host
+          ServiceInstanceName: btpexperiencesuite-html5-app-host-service
+          ServiceKeyName: btpexperiencesuite_html_repo_host-key
+          sap.cloud.service: btpexperiencesuite
+        - Authentication: OAuth2UserTokenExchange
+          Name: btpexperiencesuite_uaa_btpexperiencesuite
+          ServiceInstanceName: btpexperiencesuite-xsuaa-service
+          ServiceKeyName: uaa_btpexperiencesuite-key
+          sap.cloud.service: btpexperiencesuite
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: btpexperiencesuite-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: btpexperiencesuite_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - bsxbtpexperiencesuiteui.zip
+      name: bsxbtpexperiencesuiteui
+      target-path: resources/
+- name: bsxbtpexperiencesuiteui
+  type: html5
+  path: btpexperiencesuiteui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: btpexperiencesuite-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: btpexperiencesuite-destination-service
+    service-plan: lite
+- name: btpexperiencesuite_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: btpexperiencesuite-html5-app-host-service
+    service-plan: app-host
+- name: uaa_btpexperiencesuite
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: btpexperiencesuite-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo
